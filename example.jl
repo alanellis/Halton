@@ -13,19 +13,19 @@ HaltonSeq!(H, B, skip=100)
 ## Halton Draws
 
 # 1000 Normal draws using a Halton sequence with base 17.
-# Default: Skip the first 500 draws
+# Skip the first 500 draws.
 H = Vector{Float64}(1000)
 B = 17
-HaltonDraws!(H, B)
+HaltonDraws!(H, B, skip=500)
 
 # Check your work:
 using Plots
 gr()
 histogram(H)
 
-# 1000 Normal draws using a Halton sequence with base 17.
+# 1000 draws using a Halton sequence with base 17.
 ## Use Distributions.Uniform and skip no entries
-## Requires Distributions.quantile(distr,x)
+## Requires Distributions.quantile.(distr,x)
 H = Vector{Float64}(1000)
 B = 17
-HaltonDraws!(H, B, distr=Distributions.Uniform(), skip=0)
+HaltonDraws!(H, B, distr=Distributions.Uniform())
